@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Financial Graphing Website</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header>
@@ -11,7 +14,9 @@
 
     <main>
         <!-- img src="Screenshot 2024-06-21 164459.png" alt="example graph" style="width:900px;height:500px;"> -->
-        <svg></svg>
+        <div>
+            <canvas id="stockChart"></canvas>
+        </div>
         <p>CAGR: 9.19%</p>
         <p>vol: 12%</p>
     </main>
@@ -20,6 +25,6 @@
         <!-- Add your website footer content here -->
     </footer>
 </body>
-<script src="https://d3js.org/d3.v7.min.js"></script>
-<script src = 'scripts.js'></script>
+<!-- script src="https://d3js.org/d3.v7.min.js"></script> -->
+<script src = 'script2.js'></script>
 </html>

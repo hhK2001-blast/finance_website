@@ -63,3 +63,10 @@ img {
     margin-left: auto;
     margin-right: auto;
 }
+
+#stockChart {
+    width: 50vw;
+    height: 50vh;
+    margin-left: auto;
+    margin-right: auto;
+}
