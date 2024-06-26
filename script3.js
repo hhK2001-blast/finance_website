@@ -1,5 +1,5 @@
-const API_KEY = 'AIzaSyB9P7CpIMQ4E2n8IpFuAA7Mogayy2IEmxQ';
-const SHEET_ID = '1Ln4q9Z5mH3C897R-EfoF96deX0Ki10rE4vb5tiF9xrQ';
+const API_KEY = 'api_key';
+const SHEET_ID = 'your_sheet_id';  // Replace this with your Google Sheet ID
 const RANGE = 'Sheet1!A3:B86';  // Adjust this to your needs
 
 function fetchSheetData() {
@@ -9,70 +9,46 @@ function fetchSheetData() {
         .then(response => response.json())
         .then(data => {
             const values = data.values;
-            let output = '<table>';
-            values.forEach(row => {
-                output += '<tr>';
-                row.forEach(cell => {
-                    output += `<td>${cell}</td>`;
-                });
-                output += '</tr>';
-            });
-            output += '</table>';
-            document.getElementById('output').innerHTML = output;
+            const labels = values.slice(1).map(row => row[0]);
+            const dataPoints = values.slice(1).map(row => parseFloat(row[1]));
+
+            createChart(labels, dataPoints, values[0][0], values[0][1]);
         })
         .catch(error => console.error('Error:', error));
 }
 
-function graphData() {
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}?key=${API_KEY}`;
-
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            const values = data.values;
-            const dates = values.map(row => row[0]);
-            const prices = values.map(row => parseFloat(row[1]));
-
-            const chartData = {
-                labels: dates,
-                datasets: [{
-                    label: 'Price',
-                    data: prices,
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1
-                }]
-            };
-
-            const chartOptions = {
-                scales: {
-                    x: {
-                        type: 'time',
-                        time: {
-                            unit: 'day'
-                        },
-                        title: {
-                            display: true,
-                            text: 'Date'
-                        }
-                    },
-                    y: {
-                        title: {
-                            display: true,
-                            text: 'Price'
-                        }
+function createChart(labels, data, xAxisLabel, yAxisLabel) {
+    const ctx = document.getElementById('myChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: yAxisLabel,
+                data: data,
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: xAxisLabel
                     }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: yAxisLabel
+                    },
+                    beginAtZero: false
                 }
-            };
-
-            const ctx = document.getElementById('chart').getContext('2d');
-            new Chart(ctx, {
-                type: 'line',
-                data: chartData,
-                options: chartOptions
-            });
-        })
-        .catch(error => console.error('Error:', error));
+            }
+        }
+    });
 }
 
-graphData();
+fetchSheetData();
