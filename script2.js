@@ -36,8 +36,8 @@ function generateDummyData() {
     const labels = [];
     const data = [];
     const now = new Date();
-    for (let i = 0; i < 10; i++) {
-        const date = new Date(now.getTime() - (9 - i) * 24 * 60 * 60 * 1000);
+    for (let i = 0; i < 60; i++) {
+        const date = new Date(now.getTime() - (59 - i) * 24 * 60 * 60 * 1000);
         labels.push(date.toLocaleDateString());
         data.push(Math.random() * 100 + 100); // Random price between 100 and 200
     }
