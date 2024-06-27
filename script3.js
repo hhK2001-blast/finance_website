@@ -18,13 +18,13 @@ function fetchSheetData() {
 }
 
 function createChart(labels, data, xAxisLabel, yAxisLabel) {
-    const ctx = document.getElementById('myChart').getContext('2d');
+    const ctx = document.getElementById('myChart1').getContext('2d');
     new Chart(ctx, {
         type: 'line',
         data: {
             labels: labels,
             datasets: [{
-                label: yAxisLabel,
+                label: 'S&P 500 Index over last 4 months',
                 data: data,
                 borderColor: 'rgb(75, 192, 192)',
                 tension: 0.1
@@ -36,13 +36,13 @@ function createChart(labels, data, xAxisLabel, yAxisLabel) {
                 x: {
                     title: {
                         display: true,
-                        text: xAxisLabel
+                        text: 'time'
                     }
                 },
                 y: {
                     title: {
                         display: true,
-                        text: yAxisLabel
+                        text: 'S&P 500 Index'
                     },
                     beginAtZero: false
                 }

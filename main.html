@@ -14,12 +14,18 @@
 
     <main>
         <div class="tab">
-            <button class="tablinks" onclick="openCity(event, 'S&P500')">S&P500</button>
-            <button class="tablinks" onclick="openCity(event, 'Topix')">Topix</button>
-            <button class="tablinks" onclick="openCity(event, 'ASX300')">ASX300</button>
+            <button class="tablinks" onclick="openChart(event, 'S&P500')">S&P500</button>
+            <button class="tablinks" onclick="openChart(event, 'Topix')">Topix</button>
+            <button class="tablinks" onclick="openChart(event, 'ASX300')">ASX300</button>
           </div>
-        <div style="width: 80%; margin: auto;">
-            <canvas id="myChart"></canvas>
+        <div id="stockChart1" class="tabcontent">
+            <canvas id="myChart1"></canvas>
+        </div>
+        <div id="stockChart2" class="tabcontent">
+            <canvas id="myChart2"></canvas>
+        </div>
+        <div id="stockChart3" class="tabcontent">
+            <canvas id="myChart3"></canvas>
         </div>
     </main>
 
