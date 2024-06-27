@@ -14,18 +14,18 @@
 
     <main>
         <div class="tab">
-            <button class="tablinks" onclick="openChart(event, 'S&P500')">S&P500</button>
-            <button class="tablinks" onclick="openChart(event, 'Topix')">Topix</button>
-            <button class="tablinks" onclick="openChart(event, 'ASX300')">ASX300</button>
+            <button class="tablinks" onclick="openTab(event, 'Graph1')" id="defaultOpen">S&P500</button>
+            <button class="tablinks" onclick="openTab(event, 'Graph2')">Topix</button>
+            <button class="tablinks" onclick="openTab(event, 'Graph3')">ASX300</button>
           </div>
-        <div id="stockChart1" class="tabcontent">
-            <canvas id="myChart1"></canvas>
+        <div id="Graph1" class="tabcontent">
+            <canvas id="chart1"></canvas>
         </div>
-        <div id="stockChart2" class="tabcontent">
-            <canvas id="myChart2"></canvas>
+        <div id="Graph2" class="tabcontent">
+            <canvas id="chart2"></canvas>
         </div>
-        <div id="stockChart3" class="tabcontent">
-            <canvas id="myChart3"></canvas>
+        <div id="Graph3" class="tabcontent">
+            <canvas id="chart3"></canvas>
         </div>
     </main>
 
@@ -33,6 +33,6 @@
         <!-- Add your website footer content here -->
     </footer>
 </body>
-<script src="script3.js"></script>
+<script src="script4.js"></script>
 <!-- script src="https://d3js.org/d3.v7.min.js"></script> -->
 </html>

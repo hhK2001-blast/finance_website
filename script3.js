@@ -1,6 +1,10 @@
 const API_KEY = 'AIzaSyB9P7CpIMQ4E2n8IpFuAA7Mogayy2IEmxQ';
 const SHEET_ID = '1Ln4q9Z5mH3C897R-EfoF96deX0Ki10rE4vb5tiF9xrQ';  // Replace this with your Google Sheet ID
-const RANGE = 'Sheet1!A3:B85';  // Adjust this to your needs
+const RANGES = {
+    'Graph1': 'Sheet1!A3:B85',
+    'Graph2': 'Sheet2!A2:B84',
+    'Graph3': 'Sheet3!A2:B84'
+};
 
 function fetchSheetData() {
     const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}?key=${API_KEY}`;
