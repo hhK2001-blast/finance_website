@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Financial Graphing Website</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header>
@@ -10,16 +13,26 @@
     </header>
 
     <main>
-        <!-- img src="Screenshot 2024-06-21 164459.png" alt="example graph" style="width:900px;height:500px;"> -->
-        <svg></svg>
-        <p>CAGR: 9.19%</p>
-        <p>vol: 12%</p>
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'Graph1')" id="defaultOpen">S&P500</button>
+            <button class="tablinks" onclick="openTab(event, 'Graph2')">Topix</button>
+            <button class="tablinks" onclick="openTab(event, 'Graph3')">ASX300</button>
+          </div>
+        <div id="Graph1" class="tabcontent">
+            <canvas id="chart1"></canvas>
+        </div>
+        <div id="Graph2" class="tabcontent">
+            <canvas id="chart2"></canvas>
+        </div>
+        <div id="Graph3" class="tabcontent">
+            <canvas id="chart3"></canvas>
+        </div>
     </main>
 
     <footer>
         <!-- Add your website footer content here -->
     </footer>
 </body>
-<script src="https://d3js.org/d3.v7.min.js"></script>
-<script src = 'scripts.js'></script>
+<script src="script4.js"></script>
+<!-- script src="https://d3js.org/d3.v7.min.js"></script> -->
 </html>
