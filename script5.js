@@ -6,6 +6,9 @@ const RANGES = {
     'Graph3': 'Sheet3!A2:B1013'
 };
 
+let charts = {};
+let clickedPoints = [];
+
 function fetchSheetData(range, chartId) {
     const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${range}?key=${API_KEY}`;
 
@@ -51,6 +54,14 @@ function createChart(labels, data, xAxisLabel, yAxisLabel, chartId) {
                     }
                 }
             },
+            onClick: (event, elements) => {
+                if (elements.length > 0) {
+                    const clickedElement = elements[0];
+                    const index = clickedElement.index;
+                    const value = data[index];
+                    handleClick(chartId, index, value);
+                }
+            }
         }
     });
 }
@@ -104,3 +115,6 @@ function openTab(evt, tabName) {
         fetchSheetData(RANGES[tabName], `chart${tabName.slice(-1)}`);
     }
 }
+
+// Open the default tab
+document.getElementById("defaultOpen").click();
