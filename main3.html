@@ -1,38 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Financial Graphing Website</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Google Sheets Multi-Graph with D3.js</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+        }
+        .tab button:hover {
+            background-color: #ddd;
+        }
+        .tab button.active {
+            background-color: #ccc;
+        }
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+        .chart-container {
+            width: 800px;
+            height: 400px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Financial Graphing Website</h1>
-    </header>
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'Graph1')" id="defaultOpen">Graph 1</button>
+        <button class="tablinks" onclick="openTab(event, 'Graph2')">Graph 2</button>
+        <button class="tablinks" onclick="openTab(event, 'Graph3')">Graph 3</button>
+    </div>
 
-    <main>
-        <div class="tab">
-            <button class="tablinks" onclick="openTab(event, 'Graph1')" id="defaultOpen">S&P500</button>
-            <button class="tablinks" onclick="openTab(event, 'Graph2')">Topix</button>
-            <button class="tablinks" onclick="openTab(event, 'Graph3')">ASX300</button>
-          </div>
-        <div id="Graph1" class="tabcontent">
-            <canvas id="chart1" class="chart-container"></canvas>
-        </div>
-        <div id="Graph2" class="tabcontent">
-            <canvas id="chart2" class="chart-container"></canvas>
-        </div>
-        <div id="Graph3" class="tabcontent">
-            <canvas id="chart3" class="chart-container"></canvas>
-        </div>
-    </main>
+    <div id="Graph1" class="tabcontent">
+        <div id="chart1" class="chart-container"></div>
+    </div>
 
-    <footer>
-        <p>By Aviv Silman and Almantas Pivrikas</p>
-    </footer>
-</body>
+    <div id="Graph2" class="tabcontent">
+        <div id="chart2" class="chart-container"></div>
+    </div>
+
+    <div id="Graph3" class="tabcontent">
+        <div id="chart3" class="chart-container"></div>
+    </div>
+
     <script>
         const API_KEY = 'AIzaSyB9P7CpIMQ4E2n8IpFuAA7Mogayy2IEmxQ';
         const SHEET_ID = '1Ln4q9Z5mH3C897R-EfoF96deX0Ki10rE4vb5tiF9xrQ';  // Replace this with your Google Sheet ID
