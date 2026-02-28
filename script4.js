@@ -1,5 +1,5 @@
-const API_KEY = 'AIzaSyB9P7CpIMQ4E2n8IpFuAA7Mogayy2IEmxQ';
-const SHEET_ID = '1Ln4q9Z5mH3C897R-EfoF96deX0Ki10rE4vb5tiF9xrQ';  // Replace this with your Google Sheet ID
+const API_KEY = '';
+const SHEET_ID = '';  // Replace this with your Google Sheet ID
 const RANGES = {
     'Graph1': 'Sheet1!A3:B85',
     'Graph2': 'Sheet2!A2:B84',
